@@ -13,10 +13,14 @@ cd "$geth_dir"
 # Stop geth.
 npm run stop
 
+sleep 1
+
 # Take backup.
 sudo tarsnap -c \
   -f "$(uname -n)-$(date +%Y-%m-%d_%H-%M-%S)" \
   $dirs > $logfile 2>&1
+
+sleep 1
 
 # Start geth.
 npm start
