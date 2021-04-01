@@ -15,15 +15,15 @@ Tarsnap allows for:
 
 ##### Local Environment
 
-1. Create `/root/tarsnap` on the target machine.
+1. Create `/tarsnap` on the target machine.
 
-`$ ssh <user@host> 'sudo mkdir -p /root/tarsnap'`
+`$ ssh <user@host> 'sudo mkdir -p /tarsnap'`
 
-2. Drop `tarsnap-install.sh` and `tarsnap-register.sh` into `/root/tarsnap` on the target machine.
+2. Drop `tarsnap-install.sh` and `tarsnap-register.sh` into `/tarsnap` on the target machine.
 
 ```
 $ scp tarsnap-{install,register}.sh <user@host>:/tmp`
-$ ssh <user@host> 'sudo mv /tmp/tarsnap-{install,register}.sh /root/tarsnap'`
+$ ssh <user@host> 'sudo mv /tmp/tarsnap-{install,register}.sh /tarsnap'`
 ```
 
 3. Log into the box as root or an administrator account and change to the root directory.
@@ -42,11 +42,11 @@ $ ssh <user@host> 'sudo mv /tmp/tarsnap-{install,register}.sh /root/tarsnap'`
 
 3. Run `tarsnap-install.sh`. If it exits with an error, confirm the package key signatures match and request assistance if needed.
 
-`# /root/tarsnap/tarsnap-install.sh`
+`# /tarsnap/tarsnap-install.sh`
 
 4. After successfully installing Tarsnap, run `tarsnap-register.sh`. Backups are namespaced by keyfile, but make sure you provide a unique machine name for logging purposes.
 
-`# /root/tarsnap/tarsnap-register.sh <machine name>`
+`# /tarsnap/tarsnap-register.sh <machine name>`
 
 ## Environment-specific backup strategies
 
@@ -54,19 +54,19 @@ $ ssh <user@host> 'sudo mv /tmp/tarsnap-{install,register}.sh /root/tarsnap'`
 
 ###### ethereum-backend
 
-Drop `geth/tarsnap-backup.sh` into `/root/tarsnap` on the target machine.
+Drop `geth/tarsnap-backup.sh` into `/tarsnap` on the target machine.
 
 `$ scp geth/tarsnap-backup.sh <user@host>:/tmp`
 
 ###### ipfs-backend
 
-Drop `ipfs/tarsnap-backup.sh` into `/root/tarsnap` on the target machine.
+Drop `ipfs/tarsnap-backup.sh` into `/tarsnap` on the target machine.
 
 `$ scp ipfs/tarsnap-backup.sh <user@host>:/tmp`
 
 ###### General (Full system backups)
 
-Drop `tarsnap-backup.sh` into `/root/tarsnap` on the target machine.
+Drop `tarsnap-backup.sh` into `/tarsnap` on the target machine.
 
 `$ scp tarsnap-backup.sh <user@host>:/tmp`
 
@@ -78,16 +78,16 @@ Drop `tarsnap-backup.sh` into `/root/tarsnap` on the target machine.
 
 `$ sudo bash`
 
-2. Move the backup script to `/root/tarsnap`.
+2. Move the backup script to `/tarsnap`.
 
-`# mv /tmp/tarsnap-backup.sh /root/tarsnap`
+`# mv /tmp/tarsnap-backup.sh /tarsnap`
 
 3. Configure permissions.
 
 ```
-$ # chown -R root:root /root/tarsnap
-$ # chmod 744 /root/tarsnap/tarsnap-{install,register}.sh
-$ # chmod 755 /root/tarsnap/tarsnap-backup.sh
+$ # chown -R root:root /tarsnap
+$ # chmod 755 /tarsnap{,/tarsnap-backup.sh}
+$ # chmod 744 /tarsnap/tarsnap-{install,register}.sh
 ```
 
 ## Configure cron job
@@ -126,7 +126,7 @@ This creates a backup every night between 12-3AM.
 
 3. Run `tarsnap-backup.sh`
 
-`$ /root/tarsnap/tarsnap-backup.sh`
+`$ /tarsnap/tarsnap-backup.sh`
 
 4. Delete the canary file.
 
@@ -157,7 +157,7 @@ hello
 
 1. Run `tarsnap-backup.sh`
 
-`# /root/tarsnap-backup.sh`
+`# /tarsnap-backup.sh`
 
 ##### Local Environment
 
