@@ -110,9 +110,12 @@ This creates a backup every night between 12-3AM.
 
 `# mv /tmp/tarsnap-backup /etc/cron.d`
 
-3. Configure permissions
+3. Configure permissions.
 
-`# chown root:root /etc/cron.d/tarsnap-backup` 
+```
+# chown root:root /etc/cron.d/tarsnap-backup
+# chmod 644 /etc/cron.d/tarsnap-backup
+``` 
 
 ## Test the backup procedure
 
