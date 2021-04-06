@@ -11,7 +11,7 @@ dirs="~/.ethereum"
 cd "$geth_dir"
 
 # Stop geth.
-npm run stop
+npm stop
 
 sleep 1
 

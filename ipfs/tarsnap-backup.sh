@@ -11,7 +11,7 @@ dirs="/root/.ipfs"
 cd "$ipfs_dir"
 
 # Stop geth.
-npm run stop
+npm stop
 
 sleep 1
 
