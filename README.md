@@ -95,7 +95,7 @@ $ # chmod 744 /tarsnap/tarsnap-{install,register}.sh
 ##### Local Environment
 
 Add a cron job for tarsnap-backup.
-This creates a backup every night between 12-3AM.
+This creates a backup every night somewhere between 12-1AM.
 
 `$ scp cron/tarsnap-backup <user@host>:/tmp`
 

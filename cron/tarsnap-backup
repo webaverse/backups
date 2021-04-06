@@ -1,2 +1,2 @@
-# This creates a backup every night between 12-3AM.
-0 0 * * * ubuntu perl -le 'sleep rand 10800' && /tarsnap/tarsnap-backup.sh
+# This creates a backup every night between 12-1AM.
+0 0 * * * ubuntu perl -le 'sleep rand 3600' && /tarsnap/tarsnap-backup.sh
